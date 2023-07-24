@@ -30,7 +30,7 @@ export const PRODUCTS: IProduct[] = [
     description:
       "n publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as",
     price: 7,
-    picture: "../assets/img/entrees/chorbaSaharienne.png",
+    picture: "assets/img/entrees/chorbaSaharienne.png",
     includedAndExtraIngredients: [
       {
         id: 1,
