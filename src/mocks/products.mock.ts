@@ -30,7 +30,7 @@ export const PRODUCTS: IProduct[] = [
     description:
       "Voyagez au cœur du Sahara avec notre Chorba Saharienne, un délicieux bouillon réconfortant aux parfums envoûtants. \n\n Inspirée des traditions culinaires ancestrales du désert, cette soupe est un trésor de saveurs authentiques. Notre Chorba Saharienne est préparée avec soin, en combinant des légumes frais et des épices exotiques, pour une expérience gustative inoubliable. \n\n Chaque cuillère vous transporte dans un monde de chaleur et de convivialité, vous rappelant les délices des repas partagés autour du feu dans le désert. Savourez la générosité du Sahara en Bouche avec cette soupe traditionnelle, qui réchauffe le cœur et apaise l'âme. Que vous soyez à la recherche d'une aventure culinaire ou d'un retour aux racines, notre Chorba Saharienne est un choix réconfortant qui vous enveloppe de l'esprit authentique du désert",
     price: 7,
-    picture: "../assets/img/entrees/chorbaSaharienne.png",
+    picture: "assets/img/entrees/chorbaSaharienne.png",
     includedAndExtraIngredients: [
       {
         id: 1,
