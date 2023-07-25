@@ -1,3 +1,4 @@
+import Cgv from "../component/CGV/Cgv";
 import Footer from "../component/Footer/Footer";
 import ProductsCategories from "../component/productCtegories/ProductsCategories";
 
@@ -11,6 +12,7 @@ const HomePage = () => {
         ))}
       </main>
       <Footer />
+      <Cgv />
     </>
   );
 };

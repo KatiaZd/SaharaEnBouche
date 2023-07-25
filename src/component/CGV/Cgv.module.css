@@ -1,19 +1,19 @@
-.sectionCgv {
+.section__cgv {
     padding: 10%;
 }
 
-h1 {
+.titrePrincipal__cgv {
     text-align: center;
     font-size: 3rem;
 }
 
-h2 {
+.titreSecond__cgv {
     text-align: center;
     color: #DE4615;
     font-weight: bold;
 }
 
-h3 {
+.titreTertiaire__cgv {
     margin: 35px 0 5px 0;
     font-size: 1.3rem;
 }
