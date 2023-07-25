@@ -9,7 +9,7 @@ const ProductsCategories = (props: IProductCategorie) => {
   const { category } = props;
 
   const ProductsCategory = getProductsByCategory(category);
-  console.log("ProductsCategory", ProductsCategory);
+  //console.log("ProductsCategory", ProductsCategory);
   return (
     <section
       className={ProductsCategory.length == 0 ? Styles.display_none : ""}
