@@ -1,0 +1,23 @@
+.header {
+  width: 100%;
+  border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  border: 1px solid blue;
+  display: flex;
+}
+a{
+    padding:clamp(20px,2vw,30px);
+}
+.logo {
+  display: block;
+  width: 100%;
+}
+.panier {
+  display: block;
+  width: 100%;
+  
+}
