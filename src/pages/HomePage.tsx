@@ -1,3 +1,4 @@
+import NavBar from "../component/navBar/NavBar";
 import Footer from "../component/Footer/Footer";
 import ProductsCategories from "../component/productCtegories/ProductsCategories";
 
@@ -6,8 +7,9 @@ const HomePage = () => {
   return (
     <>
       <main>
+        <NavBar />
         {categories.map((cate) => (
-          <ProductsCategories category={cate}></ProductsCategories>
+          <ProductsCategories category={cate} id={cate}></ProductsCategories>
         ))}
       </main>
       <Footer />

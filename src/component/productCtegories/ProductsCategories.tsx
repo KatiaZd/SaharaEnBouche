@@ -3,10 +3,11 @@ import ProductCard from "../productCard/ProductCard";
 import Styles from "./ProductsCategories.module.css";
 interface IProductCategorie {
   category: string;
+  id: string;
 }
 
 const ProductsCategories = (props: IProductCategorie) => {
-  const { category } = props;
+  const { category, id } = props;
 
   const ProductsCategory = getProductsByCategory(category);
   //console.log("ProductsCategory", ProductsCategory);
@@ -14,7 +15,7 @@ const ProductsCategories = (props: IProductCategorie) => {
     <section
       className={ProductsCategory.length == 0 ? Styles.display_none : ""}
     >
-      <h2>{ProductsCategory.length != 0 && category}</h2>
+      <h2 id={id}>{ProductsCategory.length != 0 && category}</h2>
       <div className={Styles.products_categorie_container}>
         {ProductsCategory.map((product) => (
           <ProductCard
