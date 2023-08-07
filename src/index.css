@@ -1,9 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap");
 @import-normalize;
+a {
+  text-decoration: none;
+}
 body {
   font-family: "Alef", sans-serif;
+  background: #fffcf7;
 }
 main {
   width: 85.9vw;
   margin: auto;
+  display: flex;
+  flex-direction: column;
 }
