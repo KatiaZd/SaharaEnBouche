@@ -19,16 +19,9 @@ const ProductCard = (props: IProductCard) => {
             <img src="public/assets/img/vage-removebg-preview 3.png" />
           )}
         </p>
-        <p>{price}</p>
+        <p>{price}€</p>
       </div>
     </div>
-    // <div>
-    //   <img src="src\assets\img\entrees\bricksViande.png" />
-    //   <div>
-    //     <p>Bricks à la viande</p>
-    //     <p>5€</p>
-    //   </div>
-    // </div>
   );
 };
 export default ProductCard;

@@ -5,8 +5,11 @@ a {
 }
 body {
   font-family: "Alef", sans-serif;
+  background: #fffcf7;
 }
 main {
   width: 85.9vw;
   margin: auto;
+  display: flex;
+  flex-direction: column;
 }
