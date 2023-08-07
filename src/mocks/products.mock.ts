@@ -3,7 +3,13 @@ export interface IIncludedAndExtraIngredient {
   title: string;
   price: number;
 }
-export type Filter = "agneau" | "boeuf" | "poulet" | "vegetarien" | "dessert" | "boisson";
+export type IFilter =
+  | "agneau"
+  | "boeuf"
+  | "poulet"
+  | "vegetarien"
+  | "dessert"
+  | "boisson";
 
 export type ProductCategoryType =
   | "entrées"
@@ -19,7 +25,7 @@ export interface IProduct {
   price: number;
   picture: string;
   includedAndExtraIngredients: IIncludedAndExtraIngredient[];
-  filter: Filter;
+  filter: IFilter;
   category: ProductCategoryType;
 }
 
