@@ -14,6 +14,7 @@ const Product = () => {
       <div className={style.containerButton}>
         <SelectQuantityProduct />
         <Button title="Ajouter au panier" callback={addProduct} />
+
       </div>
     </>
   );
