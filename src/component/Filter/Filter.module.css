@@ -41,3 +41,9 @@
   height: 12px;
   border-radius: 50%;
 }
+
+@media (max-width: 500px) {
+  .img_filter {
+    margin-top: 133px;
+  }
+}
