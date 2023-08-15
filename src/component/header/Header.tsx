@@ -1,18 +1,43 @@
 import style from "./Header.module.css";
 import { useState } from "react";
+import { Link } from "react-scroll";
 const Header = () => {
-  // descructuration pour savoir si c'est ouvert ou fermer
+  const nav = ["entrées", "plats", "grillades", "desserts", "boissons"];
+  const [click, setClick] = useState(false);
+
+  console.log("click===", click);
+
+  const closeMenu = () => {
+    if (click == true) {
+      setClick(false);
+    } else {
+      setClick(true);
+    }
+  };
+
   const [showLinks, setShowLinks] = useState(false);
+  console.log("showLinks", showLinks);
   const handleShowlinks = () => {
-    // si on est a true on active le burger
     setShowLinks(!showLinks);
-    console.log("showLinks",showLinks);
   };
   return (
     <header className={style.header}>
       {/* faire une condition quand showLinks est a true la class show nav se met en place */}
       {/* <div className={`${style.container} ${style.navbar} ${style.show_nav}`}> */}
-      <div className={`${style.container} ${style.navbar} ${showLinks?style.show_nav:""}`}>
+      <div
+        className={`${style.container} ${style.navbar} ${
+          showLinks ? style.show_nav : ""
+        }`}
+      >
+        <button
+          className={style.navbar_burger}
+          onClick={() => {
+            handleShowlinks();
+            setClick(true);
+          }}
+        >
+          <span className={style.burger_bar}></span>
+        </button>
         <a href="#">
           <img
             className={style.logo}
@@ -23,43 +48,70 @@ const Header = () => {
         <a href="#" className="linkBasket">
           <img className={style.basket} src="assets/icons/basket.png" />
         </a>
-        <nav className={style.nav}>
-          <ul className={`${style.navbar_links} ${style.ul}`}>
-            <li className={style.navbar_item}>
-              <a href="/" className={style.navbar_link}>
-                TOUT
-              </a>
+      </div>
+      <div
+        className={`${
+          showLinks === false || click == false
+            ? style.display_none
+            : style.display_block
+        } ${style.display_none} ${style.padding_bottom}`}
+      >
+        <ul
+          className={
+            showLinks === false ? style.display_none : style.navbar_links
+          }
+        >
+          <li className={style.navbar_item}>
+            <a href="/" className={style.navbar_link}>
+              TOUT
+            </a>
+          </li>
+
+          {nav.map((link) => (
+            <li key={nav.indexOf(link)}>
+              <Link
+                to={link}
+                spy={true}
+                smooth={true}
+                offset={-110}
+                duration={2000}
+                // onClick={closeMenu}
+                onClick={() => {
+                  closeMenu;
+                  setShowLinks(false);
+                }}
+                className={style.navbar_link}
+              >
+                {link}
+              </Link>
             </li>
-            <li className={style.navbar_item}>
-              <a href="/" className={style.navbar_link}>
-                ENTREES
-              </a>
-            </li>
-            <li className={style.navbar_item}>
-              <a href="/" className={style.navbar_link}>
-                PLATS
-              </a>
-            </li>
-            <li className={style.navbar_item}>
-              <a href="/" className={style.navbar_link}>
-                GRILLADES
-              </a>
-            </li>
-            <li className={style.navbar_item}>
-              <a href="/" className={style.navbar_link}>
-                DESSERTS
-              </a>
-            </li>
-            <li className={style.navbar_item}>
-              <a href="/" className={style.navbar_link}>
-                BOISSONS
-              </a>
-            </li>
-          </ul>
-          <button className={style.navbar_burger} onClick={()=>handleShowlinks()}>
-            <span className={style.burger_bar}></span>
-          </button>
-        </nav>
+          ))}
+          {/* <li className={style.navbar_item}>
+            <a href="/" className={style.navbar_link}>
+              ENTREES
+            </a>
+          </li>
+          <li className={style.navbar_item}>
+            <a href="/" className={style.navbar_link}>
+              PLATS
+            </a>
+          </li>
+          <li className={style.navbar_item}>
+            <a href="/" className={style.navbar_link}>
+              GRILLADES
+            </a>
+          </li>
+          <li className={style.navbar_item}>
+            <a href="/" className={style.navbar_link}>
+              DESSERTS
+            </a>
+          </li>
+          <li className={style.navbar_item}>
+            <a href="/" className={style.navbar_link}>
+              BOISSONS
+            </a>
+          </li> */}
+        </ul>
       </div>
     </header>
   );
