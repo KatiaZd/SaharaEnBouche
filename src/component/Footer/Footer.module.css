@@ -19,11 +19,13 @@
   object-fit: contain;
 }
 
-.cgv {
+.cgvButton {
   color: inherit;
   padding-top: 16px;
   padding-bottom: 13px;
   text-decoration: none;
+  cursor: pointer;
+  background: none;
 }
 
 .cgv:hover {
