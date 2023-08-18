@@ -66,7 +66,7 @@ export const PRODUCTS: IProduct[] = [
     id: 2,
     title: "Salade Méchouia",
     description:
-      "Plongez dans l'authentique saveur du Sahara avec notre Salade Méchouia, un délice inspiré des traditions culinaires sahariennes. \n\n Cette salade colorée et rafraîchissante est un véritable voyage gustatif, mêlant des poivrons grillés juteux, des tomates charnues et des épices traditionnelles soigneusement sélectionnées. Chaque bouchée est une explosion de goûts et de textures, évoquant les parfums envoûtants du désert. Savourez l'héritage des recettes transmises de génération en génération, tandis que notre Salade Méchouia vous transporte dans une expérience authentique et mémorable. Découvrez la magie du Sahara en bouche avec cette salade incontournable, qui ravira tant les aventuriers culinaires que les connaisseurs nostalgiques en quête de saveurs de leur enfance.",
+      "La salade méchouia, une explosion de saveurs sahariennes dans chaque bouchée ! Mélange exquis de poivrons grillés, de tomates charnues et d'épices traditionnelles, cette salade vous transporte instantanément au cœur du désert. Savoureuse, colorée et pleine de fraîcheur, elle incarne l'essence même de la cuisine saharienne, un délice qui vous fera succomber dès la première cuillère.",
     price: 6,
     picture: "../assets/img/entrees/saladeMechouia.png",
     includedAndExtraIngredients: [

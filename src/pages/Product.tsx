@@ -1,7 +1,9 @@
 import Button from "../component/Button/Button";
 import BackButton from "../component/BackButton/BackButton";
 import SelectQuantityProduct from "../component/SelectQuantityProduct/SelectQuantityProduct";
-import style from './Product.module.css';
+import style from "./Product.module.css";
+import ProductDetail from "../component/ProductDetail/ProductDtail";
+
 const Product = () => {
   const addProduct = () => {
     console.log("ajouter un produit");
@@ -10,12 +12,14 @@ const Product = () => {
   return (
     <>
       <BackButton />
-      <h1>Page product </h1>
-      <div className={style.containerButton}>
-        <SelectQuantityProduct />
-        <Button title="Ajouter au panier" callback={addProduct} />
+      <main>
+        <ProductDetail />
 
-      </div>
+        <div className={style.containerButton}>
+          <SelectQuantityProduct />
+          <Button title="Ajouter au panier" callback={addProduct} />
+        </div>
+      </main>
     </>
   );
 };

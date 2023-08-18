@@ -1,4 +1,7 @@
 import Product from "./pages/Product";
+
+import { productLoader } from "./component/ProductDetail/ProductDtail";
+
 import App from "./App";
 import HomePage from "./pages/HomePage";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -13,10 +16,18 @@ const AppRouter = () => {
           index: true,
           element: <HomePage />,
         },
+        // {
+
+        //   path:"/Product/:id",
+        //   element:<Product/>
+        // },
+
         {
-          path:"/Product/:id",
-          element:<Product/>
-        }
+          path: "/Product/:id",
+          //element: <ProductDetail />,
+          element: <Product />,
+          loader: productLoader,
+        },
       ],
     },
   ]);

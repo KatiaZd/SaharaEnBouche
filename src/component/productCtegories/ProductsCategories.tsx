@@ -49,6 +49,7 @@ const ProductsCategories = (props: IProductCategorie) => {
           {ProductsCategory.map((product) => (
             <ProductCard
               key={product.id}
+              identifiantProduct={product.id}
               title={product.title}
               img={product.picture}
               price={product.price}

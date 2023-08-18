@@ -41,12 +41,12 @@ const Header = () => {
         <a href="#">
           <img
             className={style.logo}
-            src="assets/img/logoDestkop.png"
+            src="/assets/img/logoDestkop.png"
             alt="logo sahara en bouche"
           />
         </a>
         <a href="#" className="linkBasket">
-          <img className={style.basket} src="assets/icons/basket.png" />
+          <img className={style.basket} src="/assets/icons/basket.png" />
         </a>
       </div>
       <div

@@ -3,6 +3,9 @@ import { PRODUCTS } from "../../mocks/products.mock";
 export const getProducts = () => {
   return PRODUCTS;
 };
+export const getProductById = (id: number) => {
+  return PRODUCTS.find((product) => product.id === id);
+};
 export const getProductsByCategory = (category: string | undefined) => {
   const productsCtegory = PRODUCTS.filter(
     (product) => product.category === category
