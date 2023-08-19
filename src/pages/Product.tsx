@@ -11,8 +11,8 @@ const Product = () => {
 
   return (
     <>
-      <BackButton />
       <main>
+        <BackButton />
         <ProductDetail />
 
         <div className={style.containerButton}>
