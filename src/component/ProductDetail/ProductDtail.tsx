@@ -3,6 +3,7 @@ import { getProductById } from "../../service/products/products.sevice";
 import { IProduct } from "mocks/products.mock";
 import { useLoaderData } from "react-router-dom";
 import Styles from "./ProductDetail.module.css";
+import PersonalizationProduct from "../PersonalizationProduct/PersonalizationProduct";
 
 export const productLoader = (args: ActionFunctionArgs) => {
   const { params } = args;
@@ -21,26 +22,32 @@ export const productLoader = (args: ActionFunctionArgs) => {
 
 const ProductDetail = () => {
   let product = useLoaderData() as IProduct;
+
   return (
-    <div className={Styles.productDetail_container}>
-      <div className={Styles.img_productDetail_container}>
-        <img
-          className={Styles.img_productDetail}
-          src={"/" + product.picture}
-          alt=""
-        />
+    <>
+      <div className={Styles.productDetail_container}>
+        <div className={Styles.img_productDetail_container}>
+          <img
+            className={Styles.img_productDetail}
+            src={"/" + product.picture}
+            alt=""
+          />
+        </div>
+        <div className={Styles.description_container}>
+          <div>
+            <h2 className={Styles.h2}>
+              {product.title}{" "}
+              {product.filter === "vegetarien" && (
+                <img src="/assets/img/vage-removebg-preview 3.png" />
+              )}
+            </h2>
+            <p>{product.price}€</p>
+            <p>{product.description}</p>
+          </div>
+          <PersonalizationProduct product={product} />
+        </div>
       </div>
-      <div className={Styles.description_container}>
-        <h2 className={Styles.h2}>
-          {product.title}{" "}
-          {product.filter === "vegetarien" && (
-            <img src="/assets/img/vage-removebg-preview 3.png" />
-          )}
-        </h2>
-        <p>{product.price}€</p>
-        <p>{product.description}</p>
-      </div>
-    </div>
+    </>
   );
 };
 export default ProductDetail;
