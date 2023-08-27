@@ -1,27 +1,26 @@
-import { ActionFunctionArgs } from "react-router-dom";
-import { getProductById } from "../../service/products/products.sevice";
 import { IProduct } from "mocks/products.mock";
-import { useLoaderData } from "react-router-dom";
+
 import Styles from "./ProductDetail.module.css";
 import PersonalizationProduct from "../PersonalizationProduct/PersonalizationProduct";
+import { useEffect, useState } from "react";
 
-export const productLoader = (args: ActionFunctionArgs) => {
-  const { params } = args;
-  const { id } = params;
-  console.log("id laoder", id);
-  const productId = Number(id);
-  const product = getProductById(productId);
-  if (!product) {
-    throw new Response("", {
-      status: 404,
-      statusText: "le produit n'existe pas ",
-    });
-  }
-  return product;
-};
+interface IProductDetails {
+  product: IProduct;
+  detailProductToPageProduct: (productPersonaliser: IProduct) => void;
+}
+const ProductDetail = (props: IProductDetails) => {
+  const { product, detailProductToPageProduct } = props;
 
-const ProductDetail = () => {
-  let product = useLoaderData() as IProduct;
+  const [productPersonaliser, setData] = useState<IProduct>(product);
+
+  const PersonalizationProductToProductDetail = (
+    productPersonaliser: IProduct
+  ) => {
+    setData(productPersonaliser);
+  };
+  useEffect(() => {
+    detailProductToPageProduct(productPersonaliser);
+  }, [productPersonaliser]);
 
   return (
     <>
@@ -44,7 +43,12 @@ const ProductDetail = () => {
             <p>{product.price}€</p>
             <p>{product.description}</p>
           </div>
-          <PersonalizationProduct product={product} />
+          <PersonalizationProduct
+            product={product}
+            PersonalizationProductToProductDetail={
+              PersonalizationProductToProductDetail
+            }
+          />
         </div>
       </div>
     </>

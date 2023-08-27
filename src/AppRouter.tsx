@@ -1,6 +1,6 @@
 import Product from "./pages/Product";
 
-import { productLoader } from "./component/ProductDetail/ProductDtail";
+import { productLoader } from "./pages/Product";
 
 import App from "./App";
 import HomePage from "./pages/HomePage";

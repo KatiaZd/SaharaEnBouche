@@ -13,7 +13,6 @@ import Styles from "./ProductCard.module.css";
 const ProductCard = (props: IProductCard) => {
   const { title, img, price, filter, identifiantProduct } = props;
 
-  console.log("identifiantProduct===", identifiantProduct);
   return (
     <div className={Styles.product_container}>
       <Link to={`/Product/${identifiantProduct}`}>
