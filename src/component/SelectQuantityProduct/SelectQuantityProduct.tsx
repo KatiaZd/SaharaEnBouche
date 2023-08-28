@@ -9,8 +9,17 @@ interface IP {
 }
 const SelectQuantityProduct = (props: IP) => {
   let { product, selectQuantityToProductComponent } = props;
-  const [selectedOption, setSelectOption] = useState(0);
+
   const { changeQuantityOfProductCart, products } = useCartContext();
+
+  const getQuantityProductCart = () => {
+    let quantity = 0;
+    products.forEach((ele) => (quantity = ele.quantity));
+    return quantity;
+  };
+
+  let quantityProductInCart = getQuantityProductCart();
+  const [selectedOption, setSelectOption] = useState(quantityProductInCart);
 
   const handleSelectChange = (event: any) => {
     setSelectOption(event.target.value);
@@ -18,6 +27,7 @@ const SelectQuantityProduct = (props: IP) => {
   useEffect(() => {
     selectQuantityToProductComponent(selectedOption);
     changeQuantityOfProductCart(products, product.id, selectedOption);
+    console.log("selct option====", selectedOption);
   }, [selectedOption]);
 
   return (

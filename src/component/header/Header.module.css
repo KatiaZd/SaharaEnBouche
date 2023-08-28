@@ -110,3 +110,16 @@
 .padding_bottom {
   padding-bottom: 1rem;
 }
+.quantity_ProductCart {
+  border: 1px solid transparent;
+  padding: 1px 6px;
+  border-radius: 50%;
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  font-size: clamp(4px, 3vw, 12px);
+  background-color: #ffd98f;
+}
+.linkBasket {
+  position: relative;
+}

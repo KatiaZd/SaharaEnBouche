@@ -1,64 +1,88 @@
-import { Fragment } from "react";
 import { useCartContext } from "../component/Contexts/Cart.context";
 import Styles from "./PanierPage.module.css";
 import SelectQuantityProduct from "../component/SelectQuantityProduct/SelectQuantityProduct";
-import { useState } from "react";
-const PanierPage = () => {
-  const { products, getCartTotalProduct } = useCartContext();
-  console.log("productCart===", products);
-  //   const [selectQuantity, setData] = useState(0);
+import Button from "../component/Button/Button";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-  //   const selectQuantityToProductComponent = (childdata: any) => {
-  //     setData(childdata);
-  //   };
+const PanierPage = () => {
+  const { products, getCartTotalProduct, removeProductInCart } =
+    useCartContext();
+  console.log("productCart===", products);
+  let navigate = useNavigate();
 
   return (
     <main>
-      {products.map((productCart) => (
-        <div className={Styles.product_cart}>
-          <div>
-            <img src={productCart.product.picture} alt="" />
-          </div>
-          <div>
+      <Link className={Styles.retour_homePage} to={"/"}>
+        Retour aux produits
+      </Link>
+      <h2 className={Styles.pagePanier_title}>Votre panier</h2>
+      <div className={Styles.container_Products}>
+        {products.map((productCart) => (
+          <div className={Styles.product_cart}>
+            <div className={Styles.remove_productCart_position}>
+              <img
+                onClick={() =>
+                  removeProductInCart(
+                    products,
+                    productCart.product && productCart.product.id
+                  )
+                }
+                className={Styles.icon_remove_productCart}
+                src="./public/assets/icons/croix.png"
+                alt=""
+              />
+              <img src={productCart.product.picture} alt="" />
+            </div>
             <div>
-              <h2>{productCart.product.title}</h2>
-              <p>{productCart.product.price}€</p>
-              <div className={Styles.ingridient_selectQuantity}>
-                <div>
-                  <div className={Styles.container_ingridients}>
-                    <h3>inclus : </h3>
-                    {productCart.product.includedAndExtraIngredients
-                      .filter((ingridient) => ingridient.price === 0)
-                      .map((ingridients) => (
-                        <Fragment>
-                          <p>{ingridients.title}, </p>
-                        </Fragment>
-                      ))}
-                  </div>
-                  <div className={Styles.container_ingridients}>
-                    <h3>exstra :</h3>
-                    {productCart.product.includedAndExtraIngredients
-                      .filter((ingridient) => ingridient.price != 0)
-                      .map((ingridients) => (
-                        <>
-                          <p>{ingridients.title}</p>
-                          <p>{ingridients.price}€</p>
-                        </>
-                      ))}
-                  </div>
+              <div>
+                <div className={Styles.remove_productCart}>
+                  <h2 className={Styles.h2_panier}>
+                    {productCart.product.title}{" "}
+                    {productCart.product.filter === "vegetarien" && (
+                      <img src="public/assets/img/vage-removebg-preview 3.png" />
+                    )}
+                  </h2>
                 </div>
-                {/* <SelectQuantityProduct
-                  product={productCart.product}
-                  selectQuantityToProductComponent={
-                    selectQuantityToProductComponent
-                  }
-                /> */}
+                <p className={Styles.p_panier}>{productCart.product.price}€</p>
+                <div className={Styles.ingridient_selectQuantity}>
+                  <div>
+                    <div className={Styles.container_ingridients}>
+                      <h3>inclus: </h3>
+                      <p>
+                        {productCart.product.includedAndExtraIngredients
+                          .filter((ingridient) => ingridient.price === 0)
+                          .map((ingridients) => (
+                            <>{ingridients.title},</>
+                          ))}
+                      </p>
+                    </div>
+                    <div className={Styles.container_ingridients}>
+                      <h3>exstra:</h3>
+                      <p>
+                        {productCart.product.includedAndExtraIngredients
+                          .filter((ingridient) => ingridient.price != 0)
+                          .map((ingridients) => (
+                            <>
+                              {ingridients.title}
+                              {ingridients.price}€ ,
+                            </>
+                          ))}
+                      </p>
+                    </div>
+                  </div>
+                  <SelectQuantityProduct
+                    product={productCart.product}
+                    selectQuantityToProductComponent={() => {}}
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
-      <p>Total :{getCartTotalProduct()}€</p>
+        ))}
+      </div>
+      <p className={Styles.total_cart}>Total :{getCartTotalProduct()}€</p>
+      <Button title="Procéder au paiement" callback={() => navigate("/")} />
     </main>
   );
 };

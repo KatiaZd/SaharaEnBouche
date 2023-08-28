@@ -1,4 +1,5 @@
 import { IProduct } from "mocks/products.mock";
+import { element } from "prop-types";
 import { createContext, useContext, useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
@@ -17,7 +18,10 @@ interface ICart {
     selectQuantity: number
   ) => void;
   getCartTotalProduct: () => number;
+  removeProductInCart: (cartProducts: ICartProduct[], id: number) => void;
+  getQuantityTotal: () => number;
 }
+
 // panier initial
 const defaultCart: ICart = {
   products: [],
@@ -28,6 +32,10 @@ const defaultCart: ICart = {
     selectQuantity: number
   ) => {},
   getCartTotalProduct: (): number => {
+    return Number(0);
+  },
+  removeProductInCart: (cartProducts: ICartProduct[], id: number) => {},
+  getQuantityTotal: (): number => {
     return Number(0);
   },
 };
@@ -90,12 +98,33 @@ export const CartProvider = (props: CartProviderProps) => {
   };
 
   const getCartTotalProduct = () => {
-    return cartProducts.reduce(
+    let price = cartProducts.reduce(
       (total, cartProduct) =>
         total +
         Number(cartProduct.product.price) * Number(cartProduct.quantity),
       0
-    ); // calculate the total price of the items in the cart
+    );
+    let price2 = 0;
+    cartProducts.forEach((element) =>
+      element.product.includedAndExtraIngredients.forEach(
+        (ingridient) => (price2 = price2 + ingridient.price * element.quantity)
+      )
+    );
+    console.log("price ingridients ===", price2);
+    price = price + price2;
+    return price; // calculate the total price of the items in the cart
+  };
+
+  const getQuantityTotal = () => {
+    return cartProducts.reduce(
+      (total, cartProduct) => total + cartProduct.quantity,
+      0
+    );
+  };
+  const removeProductInCart = (cartProducts: ICartProduct[], id: number) => {
+    setCartProducts(
+      cartProducts.filter((cartProduct) => cartProduct.product.id !== id)
+    );
   };
 
   useEffect(() => {
@@ -114,6 +143,8 @@ export const CartProvider = (props: CartProviderProps) => {
     addProductToCart,
     changeQuantityOfProductCart,
     getCartTotalProduct,
+    removeProductInCart,
+    getQuantityTotal,
   };
 
   return <CartContext.Provider value={cart}>{children}</CartContext.Provider>;

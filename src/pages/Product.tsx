@@ -27,6 +27,7 @@ export const productLoader = (args: ActionFunctionArgs) => {
 
 const Product = () => {
   const [selectQuantity, setData] = useState(0);
+  const [isAdd, setIsAdd] = useState(false);
 
   const selectQuantityToProductComponent = (childdata: any) => {
     setData(childdata);
@@ -40,6 +41,7 @@ const Product = () => {
     setProductPersonaliser(childdata);
   };
 
+  console.log("isadd", isAdd);
   const { addProductToCart } = useCartContext();
 
   return (
@@ -58,11 +60,18 @@ const Product = () => {
           />
           <Button
             title="Ajouter au panier"
-            callback={() =>
-              addProductToCart(productPersonaliser, selectQuantity)
-            }
+            callback={() => {
+              addProductToCart(productPersonaliser, selectQuantity);
+              setIsAdd(true);
+              console.log("isAdd", isAdd);
+            }}
           />
         </div>
+        {isAdd && (
+          <p className={style.product_ajouter}>
+            le produit est ajouter au panier
+          </p>
+        )}
       </main>
     </>
   );

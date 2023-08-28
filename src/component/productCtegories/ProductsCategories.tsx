@@ -81,6 +81,7 @@ const ProductsCategories = (props: IProductCategorie) => {
                     img={product.picture}
                     price={product.price}
                     filter={product.filter}
+                    identifiantProduct={product.id}
                   ></ProductCard>
                 ))}
               </div>
