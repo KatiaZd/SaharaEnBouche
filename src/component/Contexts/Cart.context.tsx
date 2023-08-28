@@ -16,6 +16,7 @@ interface ICart {
     id: number,
     selectQuantity: number
   ) => void;
+  getCartTotalProduct: () => number;
 }
 // panier initial
 const defaultCart: ICart = {
@@ -26,6 +27,9 @@ const defaultCart: ICart = {
     id: number,
     selectQuantity: number
   ) => {},
+  getCartTotalProduct: (): number => {
+    return Number(0);
+  },
 };
 
 export const CartContext = createContext<ICart>(defaultCart);
@@ -85,6 +89,15 @@ export const CartProvider = (props: CartProviderProps) => {
     );
   };
 
+  const getCartTotalProduct = () => {
+    return cartProducts.reduce(
+      (total, cartProduct) =>
+        total +
+        Number(cartProduct.product.price) * Number(cartProduct.quantity),
+      0
+    ); // calculate the total price of the items in the cart
+  };
+
   useEffect(() => {
     localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
   }, [cartProducts]);
@@ -100,6 +113,7 @@ export const CartProvider = (props: CartProviderProps) => {
     products: cartProducts,
     addProductToCart,
     changeQuantityOfProductCart,
+    getCartTotalProduct,
   };
 
   return <CartContext.Provider value={cart}>{children}</CartContext.Provider>;

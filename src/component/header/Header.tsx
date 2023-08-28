@@ -44,9 +44,9 @@ const Header = () => {
             alt="logo sahara en bouche"
           />
         </NavLink>
-        <a href="#" className="linkBasket">
+        <NavLink to="/panier" className="linkBasket">
           <img className={style.basket} src="/assets/icons/basket.png" />
-        </a>
+        </NavLink>
       </div>
       <div
         className={`${

@@ -5,6 +5,7 @@ import { productLoader } from "./pages/Product";
 import App from "./App";
 import HomePage from "./pages/HomePage";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import PanierPage from "./pages/PanierPage";
 
 const AppRouter = () => {
   const router = createBrowserRouter([
@@ -16,17 +17,15 @@ const AppRouter = () => {
           index: true,
           element: <HomePage />,
         },
-        // {
-
-        //   path:"/Product/:id",
-        //   element:<Product/>
-        // },
 
         {
           path: "/Product/:id",
-          //element: <ProductDetail />,
           element: <Product />,
           loader: productLoader,
+        },
+        {
+          path: "/panier",
+          element: <PanierPage />,
         },
       ],
     },
