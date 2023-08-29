@@ -12,7 +12,7 @@ const PanierPage = () => {
   let navigate = useNavigate();
 
   return (
-    <main>
+    <main className={Styles.main}>
       <Link className={Styles.retour_homePage} to={"/"}>
         Retour aux produits
       </Link>
@@ -82,7 +82,10 @@ const PanierPage = () => {
         ))}
       </div>
       <p className={Styles.total_cart}>Total :{getCartTotalProduct()}€</p>
-      <Button title="Procéder au paiement" callback={() => navigate("/Payment")} />
+      <Button
+        title="Procéder au paiement"
+        callback={() => navigate("/Payment")}
+      />
     </main>
   );
 };

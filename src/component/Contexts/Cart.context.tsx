@@ -20,6 +20,7 @@ interface ICart {
   getCartTotalProduct: () => number;
   removeProductInCart: (cartProducts: ICartProduct[], id: number) => void;
   getQuantityTotal: () => number;
+  cleanCart: () => void;
 }
 
 // panier initial
@@ -38,6 +39,7 @@ const defaultCart: ICart = {
   getQuantityTotal: (): number => {
     return Number(0);
   },
+  cleanCart: () => {},
 };
 
 export const CartContext = createContext<ICart>(defaultCart);
@@ -127,6 +129,10 @@ export const CartProvider = (props: CartProviderProps) => {
     );
   };
 
+  const cleanCart = () => {
+    setCartProducts([]);
+  };
+
   useEffect(() => {
     localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
   }, [cartProducts]);
@@ -145,6 +151,7 @@ export const CartProvider = (props: CartProviderProps) => {
     getCartTotalProduct,
     removeProductInCart,
     getQuantityTotal,
+    cleanCart,
   };
 
   return <CartContext.Provider value={cart}>{children}</CartContext.Provider>;

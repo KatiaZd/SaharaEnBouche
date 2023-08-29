@@ -32,7 +32,8 @@
 
 .icon_remove_productCart {
   width: 16px;
-  left: 19rem;
+
+  left: 98%;
   position: absolute;
 }
 .container_Products {
@@ -60,12 +61,13 @@
   font-size: 16px;
   text-decoration-line: underline;
 }
-.remove_productCart_position {
-  position: relative;
-}
+
 .h3 {
   margin: 0;
   font-size: clamp(1rem, 3vw, 18px);
+}
+.main {
+  position: relative;
 }
 @media (max-width: 500px) {
   .retour_homePage {

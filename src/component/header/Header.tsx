@@ -2,8 +2,11 @@ import { useCartContext } from "../../component/Contexts/Cart.context";
 import style from "./Header.module.css";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-scroll";
 const Header = () => {
+  let location = useLocation().pathname;
+
   const nav = ["entrées", "plats", "grillades", "desserts", "boissons"];
   const [click, setClick] = useState(false);
 
@@ -29,7 +32,9 @@ const Header = () => {
         }`}
       >
         <button
-          className={style.navbar_burger}
+          className={
+            location != "/" ? style.burger_display_none : style.navbar_burger
+          }
           onClick={() => {
             handleShowlinks();
             setClick(true);
