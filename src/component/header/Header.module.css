@@ -123,3 +123,6 @@
 .linkBasket {
   position: relative;
 }
+.burger_display_none {
+  display: none;
+}

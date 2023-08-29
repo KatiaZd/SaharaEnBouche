@@ -9,6 +9,8 @@ const Sammury = () => {
   console.log("productCart===", products);
   let navigate = useNavigate();
 
+  const { cleanCart } = useCartContext();
+
   return (
     <main>
       <h2 className={`${Styles.pagePanier_title} ${style.Sammury_title}`}>
@@ -65,7 +67,13 @@ const Sammury = () => {
         ))}
       </div>
       <p className={Styles.total_cart}>Total :{getCartTotalProduct()}€</p>
-      <Button title="Nouvelle commande" callback={() => navigate("/")} />
+      <Button
+        title="Nouvelle commande"
+        callback={() => {
+          navigate("/");
+          cleanCart();
+        }}
+      />
     </main>
   );
 };
