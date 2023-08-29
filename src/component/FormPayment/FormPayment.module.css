@@ -1,0 +1,8 @@
+.column{
+    display:flex;
+    flex-direction: column;
+}
+.input{
+    border: none;
+    background-color: #FDF3E3;
+}

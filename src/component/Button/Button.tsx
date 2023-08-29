@@ -7,7 +7,7 @@ const Button = (props: ButtonProps) => {
   const { title, callback } = props;
   return (
     <>
-      <button onClick={callback} className={style.button}>{title}</button>
+      <button onClick={callback} className={style.buttonClick}>{title}</button>
     </>
   );
 };
