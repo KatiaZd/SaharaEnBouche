@@ -8,7 +8,7 @@ const Button = (props: ButtonProps) => {
   return (
     <>
 
-      {/* <button onClick={callback} className={style.buttonClick}>{title}</button> */}
+ 
 
       <button onClick={callback} className={style.button}>
         {title}
