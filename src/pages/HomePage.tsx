@@ -35,7 +35,6 @@ const HomePage = () => {
 
         <ProductsCategories tag={filter}></ProductsCategories>
       </main>
-      <Footer />
     </>
   );
 };
