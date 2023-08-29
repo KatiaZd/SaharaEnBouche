@@ -1,12 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import style from "./SelectQuantityProduct.module.css";
-const SelectQuantityProduct = () => {
-  const [selectedOption, setSelectOption] = useState(undefined);
+import { IProduct } from "mocks/products.mock";
+import { useCartContext } from "../../component/Contexts/Cart.context";
+
+interface IP {
+  product: IProduct;
+  selectQuantityToProductComponent: any;
+}
+const SelectQuantityProduct = (props: IP) => {
+  let { product, selectQuantityToProductComponent } = props;
+
+  const { changeQuantityOfProductCart, products } = useCartContext();
+
+  const getQuantityProductCart = () => {
+    let quantity = 0;
+    products.forEach((ele) => (quantity = ele.quantity));
+    return quantity;
+  };
+
+  let quantityProductInCart = getQuantityProductCart();
+  const [selectedOption, setSelectOption] = useState(quantityProductInCart);
 
   const handleSelectChange = (event: any) => {
     setSelectOption(event.target.value);
   };
-  console.log("SelectOption", selectedOption);
+  useEffect(() => {
+    selectQuantityToProductComponent(selectedOption);
+    changeQuantityOfProductCart(products, product.id, selectedOption);
+    console.log("selct option====", selectedOption);
+  }, [selectedOption]);
+
   return (
     <>
       <select

@@ -1,11 +1,11 @@
+import { useCartContext } from "../../component/Contexts/Cart.context";
 import style from "./Header.module.css";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Link } from "react-scroll";
 const Header = () => {
   const nav = ["entrées", "plats", "grillades", "desserts", "boissons"];
   const [click, setClick] = useState(false);
-
-  console.log("click===", click);
 
   const closeMenu = () => {
     if (click == true) {
@@ -16,14 +16,13 @@ const Header = () => {
   };
 
   const [showLinks, setShowLinks] = useState(false);
-  console.log("showLinks", showLinks);
+
   const handleShowlinks = () => {
     setShowLinks(!showLinks);
   };
+  const { getQuantityTotal } = useCartContext();
   return (
     <header className={style.header}>
-      {/* faire une condition quand showLinks est a true la class show nav se met en place */}
-      {/* <div className={`${style.container} ${style.navbar} ${style.show_nav}`}> */}
       <div
         className={`${style.container} ${style.navbar} ${
           showLinks ? style.show_nav : ""
@@ -38,16 +37,18 @@ const Header = () => {
         >
           <span className={style.burger_bar}></span>
         </button>
-        <a href="#">
+        <NavLink to="/">
           <img
             className={style.logo}
-            src="assets/img/logoDestkop.png"
+            src="/assets/img/logoDestkop.png"
             alt="logo sahara en bouche"
           />
-        </a>
-        <a href="#" className="linkBasket">
-          <img className={style.basket} src="assets/icons/basket.png" />
-        </a>
+        </NavLink>
+        <NavLink to="/panier" className={style.linkBasket}>
+          <img className={style.basket} src="/assets/icons/basket.png" />
+          <p className={style.quantity_ProductCart}>{getQuantityTotal()}</p>
+        </NavLink>
+        {/* <p className={style.quantity_ProductCart}>{getQuantityTotal()}</p> */}
       </div>
       <div
         className={`${

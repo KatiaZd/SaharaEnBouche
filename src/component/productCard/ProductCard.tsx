@@ -1,17 +1,23 @@
+import { Link } from "react-router-dom";
+
 interface IProductCard {
   title: string;
   img: string;
   price: number;
   filter: string;
+  identifiantProduct?: number;
 }
 
 import Styles from "./ProductCard.module.css";
 
 const ProductCard = (props: IProductCard) => {
-  const { title, img, price, filter } = props;
+  const { title, img, price, filter, identifiantProduct } = props;
+
   return (
     <div className={Styles.product_container}>
-      <img src={img} className={Styles.product_img} />
+      <Link to={`/Product/${identifiantProduct}`}>
+        <img src={img} className={Styles.product_img} />
+      </Link>
       <div className={Styles.proprety_product}>
         <p className={Styles.product_title}>
           {title}

@@ -1,4 +1,27 @@
-.containerButton{
-    display:flex;
-    gap:10px;
+.containerButton {
+  display: flex;
+  gap: 10px;
+  margin: 5rem 0;
+}
+.product_ajouter {
+  position: relative;
+  top: -12rem;
+  border: 1px solid #ffd98f;
+  border-radius: 6px;
+  padding: 0.75rem;
+  z-index: 3;
+
+  opacity: 1;
+  animation: transition 2s ease-in-out 1s forwards;
+}
+
+@keyframes transition {
+  0% {
+    margin-left: 0px;
+    opacity: 1;
+  }
+  100% {
+    margin-left: 0;
+    opacity: 0;
+  }
 }
