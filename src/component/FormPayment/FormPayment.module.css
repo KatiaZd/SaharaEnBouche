@@ -5,4 +5,15 @@
 .input{
     border: none;
     background-color: #FDF3E3;
+    padding: 10px;
+}
+.label{
+    margin-bottom: 10px;
+}
+.error{
+    color:red;
+}
+.formulaire{
+    display:flex;
+    flex-direction: column;
 }

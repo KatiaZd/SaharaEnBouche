@@ -34,6 +34,13 @@
     .hide{
         display: none;
     }
+    .titlePaiement {
+        margin-top:126px;
+    }
+    .totalPrice{
+    margin-bottom: 36px;
+    font-weight: bold;
+    }
     .formPaiement{
         display:block;
     }

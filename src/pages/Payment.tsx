@@ -4,10 +4,10 @@ import style from "./Payment.module.css"
 
 const Payment =()=>{
 return(
-    <>
+    <main>
     <BackButton />
     <h2 className={style.titlePaiement}>Paiement de votre commande</h2>
-    <p>Total: 30 €</p>
+    <p className={style.totalPrice}>Total: 30 €</p>
   
     <div className={`${style.container} ${style.hide}`}>
         <div className={style.paiement}>
@@ -22,7 +22,7 @@ return(
     <div className={style.formPaiement}>
         <FormPayment/>
     </div>
-    </>
+    </main>
 )
 };
  export default Payment;

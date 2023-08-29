@@ -33,10 +33,7 @@ const AppRouter = () => {
           path:"/Payment",
           element:<Payment/>,
         },
-        {
-          path:"/Summary",
-          element:<Summary/>,
-        },
+       
        {
           path: "/panier",
           element: <PanierPage />,

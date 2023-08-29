@@ -82,7 +82,7 @@ const PanierPage = () => {
         ))}
       </div>
       <p className={Styles.total_cart}>Total :{getCartTotalProduct()}€</p>
-      <Button title="Procéder au paiement" callback={() => navigate("/")} />
+      <Button title="Procéder au paiement" callback={() => navigate("/Payment")} />
     </main>
   );
 };

@@ -1,79 +1,78 @@
 import Button from "../../component/Button/Button";
-import { useState } from "react";
+import { useState} from "react";
 import { useNavigate } from "react-router";
 import style from "./FormPayment.module.css";
+import { useForm } from "react-hook-form";
+
 const FormPayment = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    cardNumber: "",
-    date: "",
-    cryptogram: "",
-  });
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        defaultValues:{
+            username: "",
+            cardNumber: "",
+            date: "",
+            cryptogram: "", 
+        }
+    }
+      
+    );
+
+
   let navigate = useNavigate();
 
   const [submitted, setSubmitted] = useState(false);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    setSubmitted(true);
-    if (submitted) {
-      console.log("redirige moi");
-      navigate("/Summary");
-    }
-  };
 
   return (
-    <main>
-      <form onSubmit={handleSubmit}>
+    <>
+      <form onSubmit={handleSubmit(()=>{
+
+        setSubmitted(true);
+
+        if (!submitted) {
+          navigate("/");
+        }
+      })}className={style.formulaire}>
+
         <div className={style.column}>
-          <label> Titulaire de la carte</label>
+          <label className={style.label}> Titulaire de la carte</label>
           <input
             className={style.input}
             type="text"
-            value={formData.username}
-            onChange={handleInputChange}
-            name="username"
+            {...register("username",{required:'Le nom du titulaire est requis'})}
           />
+           <p className={style.error}>{errors.username?.message}</p> 
         </div>
         <div className={style.column}>
-          <label> Numéro de la carte</label>
+          <label className={style.label}> Numéro de la carte</label>
           <input
             className={style.input}
             type="number"
-            name="cardNumber"
-            value={formData.cardNumber}
-            onChange={handleInputChange}
+            {...register("cardNumber",{required:'Le numero de la carte est requis'})}
           />
+          <p className={style.error} >{errors.cardNumber?.message}</p> 
         </div>
         <div className={style.column}>
-          <label> Date de validité</label>
+          <label className={style.label}> Date de validité</label>
           <input
             className={style.input}
             type="date"
-            name="date"
-            value={formData.date}
-            onChange={handleInputChange}
+            {...register("date",{required:'La date de validation  est requise'})}
           />
+          <p className={style.error} >{errors.date?.message}</p> 
         </div>
         <div className={style.column}>
-          <label> Cryptogramme Visuel</label>
+          <label className={style.label}> Cryptogramme Visuel</label>
           <input
             className={style.input}
             type="number"
-            name="cryptogram"
-            value={formData.cryptogram}
-            onChange={handleInputChange}
+            {...register("cryptogram",{required:'Le cryptogramme est requis'})}
           />
+          <p className={style.error} >{errors.cryptogram?.message}</p> 
         </div>
 
         <Button title="Valider le paiement" callback={() => {}} />
       </form>
-    </main>
+    </>
   );
 };
 export default FormPayment;

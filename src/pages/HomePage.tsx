@@ -1,5 +1,4 @@
 import NavBar from "../component/navBar/NavBar";
-import Footer from "../component/Footer/Footer";
 
 import ProductsCategories from "../component/productCtegories/ProductsCategories";
 import Filter from "../component/Filter/Filter";
