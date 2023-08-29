@@ -9,6 +9,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import PanierPage from "./pages/PanierPage";
 
 import NotFound from "./component/NotFound/NotFound";
+import Payment from "./pages/Payment";
+import Summary from "./pages/Summary";
 
 const AppRouter = () => {
   const router = createBrowserRouter([
@@ -27,6 +29,12 @@ const AppRouter = () => {
           loader: productLoader,
         },
         {
+
+          path:"/Payment",
+          element:<Payment/>,
+        },
+       
+       {
           path: "/panier",
           element: <PanierPage />,
         },

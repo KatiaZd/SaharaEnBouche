@@ -26,6 +26,7 @@
   text-decoration: none;
   cursor: pointer;
   background: none;
+  border: none;
 }
 
 .cgv:hover {

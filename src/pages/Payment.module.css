@@ -1,0 +1,47 @@
+.titlePaiement {
+    text-align: center;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    gap: 45px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+
+.paiement {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFD98F;
+    padding: 8%;
+}
+
+.imgPaiement {
+    margin: auto;
+
+}
+
+.imgWidth {
+    width: 7vw;
+}
+
+.formPaiement{
+    display:none;
+}
+@media (max-width: 500px) {
+    .hide{
+        display: none;
+    }
+    .titlePaiement {
+        margin-top:126px;
+    }
+    .totalPrice{
+    margin-bottom: 36px;
+    font-weight: bold;
+    }
+    .formPaiement{
+        display:block;
+    }
+}
