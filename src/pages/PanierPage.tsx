@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const PanierPage = () => {
   const { products, getCartTotalProduct, removeProductInCart } =
     useCartContext();
-  console.log("productCart===", products);
+
   let navigate = useNavigate();
 
   return (

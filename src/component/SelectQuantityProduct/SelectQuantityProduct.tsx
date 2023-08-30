@@ -14,7 +14,11 @@ const SelectQuantityProduct = (props: IP) => {
 
   const getQuantityProductCart = () => {
     let quantity = 0;
-    products.forEach((ele) => (quantity = ele.quantity));
+    products.forEach((ele) => {
+      if (ele.product.id == product.id) {
+        quantity = ele.quantity;
+      }
+    });
     return quantity;
   };
 
@@ -27,7 +31,6 @@ const SelectQuantityProduct = (props: IP) => {
   useEffect(() => {
     selectQuantityToProductComponent(selectedOption);
     changeQuantityOfProductCart(products, product.id, selectedOption);
-    console.log("selct option====", selectedOption);
   }, [selectedOption]);
 
   return (
