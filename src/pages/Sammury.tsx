@@ -25,6 +25,7 @@ const Sammury = () => {
           <div key={Number(productCart.id)} className={Styles.product_cart}>
             <div className={Styles.remove_productCart_position}>
               <img src={productCart.product.picture} alt="" />
+              <p className={style.estimate}>Estimation de préparation: {productCart.product.estimate}</p>
             </div>
             <div>
               <div>

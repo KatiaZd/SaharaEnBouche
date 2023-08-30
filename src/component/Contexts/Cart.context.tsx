@@ -7,6 +7,7 @@ interface ICartProduct {
   id: String;
   product: IProduct;
   quantity: number;
+
 }
 
 interface ICart {
@@ -61,7 +62,8 @@ export const CartProvider = (props: CartProviderProps) => {
     const newCartProduct: ICartProduct = {
       id: uuidv4(),
       product,
-      quantity,
+      quantity
+     
     };
 
     const isProductInCart = cartProducts.find(
