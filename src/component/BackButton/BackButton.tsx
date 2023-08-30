@@ -4,7 +4,6 @@ import style from "./BackButton.module.css";
 const BackButton = () => {
   const navigate = useNavigate();
   const goback = () => {
-    console.log("test le backBotom");
     navigate(-1);
   };
   return (

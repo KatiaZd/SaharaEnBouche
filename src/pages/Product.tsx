@@ -41,7 +41,6 @@ const Product = () => {
     setProductPersonaliser(childdata);
   };
 
-  console.log("isadd", isAdd);
   const { addProductToCart } = useCartContext();
 
   return (
@@ -63,7 +62,6 @@ const Product = () => {
             callback={() => {
               addProductToCart(productPersonaliser, selectQuantity);
               setIsAdd(true);
-              console.log("isAdd", isAdd);
             }}
           />
         </div>

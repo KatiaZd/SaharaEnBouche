@@ -1,6 +1,6 @@
 import { useCartContext } from "../../component/Contexts/Cart.context";
 import style from "./Header.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-scroll";
@@ -23,7 +23,13 @@ const Header = () => {
   const handleShowlinks = () => {
     setShowLinks(!showLinks);
   };
-  const { getQuantityTotal } = useCartContext();
+  const { getQuantityTotal, products } = useCartContext();
+
+  const [quantityProductInCart, setQuantityProductInCart] = useState(0);
+
+  useEffect(() => {
+    setQuantityProductInCart(getQuantityTotal());
+  }, [products]);
   return (
     <header className={style.header}>
       <div
@@ -51,9 +57,8 @@ const Header = () => {
         </NavLink>
         <NavLink to="/panier" className={style.linkBasket}>
           <img className={style.basket} src="/assets/icons/basket.png" />
-          <p className={style.quantity_ProductCart}>{getQuantityTotal()}</p>
+          <p className={style.quantity_ProductCart}>{quantityProductInCart}</p>
         </NavLink>
-        {/* <p className={style.quantity_ProductCart}>{getQuantityTotal()}</p> */}
       </div>
       <div
         className={`${
@@ -92,31 +97,6 @@ const Header = () => {
               </Link>
             </li>
           ))}
-          {/* <li className={style.navbar_item}>
-            <a href="/" className={style.navbar_link}>
-              ENTREES
-            </a>
-          </li>
-          <li className={style.navbar_item}>
-            <a href="/" className={style.navbar_link}>
-              PLATS
-            </a>
-          </li>
-          <li className={style.navbar_item}>
-            <a href="/" className={style.navbar_link}>
-              GRILLADES
-            </a>
-          </li>
-          <li className={style.navbar_item}>
-            <a href="/" className={style.navbar_link}>
-              DESSERTS
-            </a>
-          </li>
-          <li className={style.navbar_item}>
-            <a href="/" className={style.navbar_link}>
-              BOISSONS
-            </a>
-          </li> */}
         </ul>
       </div>
     </header>

@@ -119,7 +119,7 @@ export const CartProvider = (props: CartProviderProps) => {
 
   const getQuantityTotal = () => {
     return cartProducts.reduce(
-      (total, cartProduct) => total + cartProduct.quantity,
+      (total, cartProduct) => total + Number(cartProduct.quantity),
       0
     );
   };
