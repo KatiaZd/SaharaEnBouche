@@ -85,7 +85,7 @@ const FormPayment = () => {
               required:" Le cryptogramme est requis",
               minLength:{
                 value:3,
-                message:"Le cryptogramme comporte 3 chiffres obligatoirement"
+                message:"Le cryptogramme  trop court  3 chiffres obligatoirement"
               },
                maxLength:{
                 value:3,
