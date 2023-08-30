@@ -4,6 +4,7 @@ import SelectQuantityProduct from "../component/SelectQuantityProduct/SelectQuan
 import Button from "../component/Button/Button";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { Fragment } from "react";
 
 const PanierPage = () => {
   const { products, getCartTotalProduct, removeProductInCart } =
@@ -19,7 +20,7 @@ const PanierPage = () => {
       <h2 className={Styles.pagePanier_title}>Votre panier</h2>
       <div className={Styles.container_Products}>
         {products.map((productCart) => (
-          <div className={Styles.product_cart}>
+          <div key={Number(productCart.id)} className={Styles.product_cart}>
             <div className={Styles.remove_productCart_position}>
               <img
                 onClick={() =>
@@ -53,7 +54,9 @@ const PanierPage = () => {
                         {productCart.product.includedAndExtraIngredients
                           .filter((ingridient) => ingridient.price === 0)
                           .map((ingridients) => (
-                            <>{ingridients.title},</>
+                            <Fragment key={ingridients.id}>
+                              {ingridients.title},
+                            </Fragment>
                           ))}
                       </p>
                     </div>
@@ -63,10 +66,10 @@ const PanierPage = () => {
                         {productCart.product.includedAndExtraIngredients
                           .filter((ingridient) => ingridient.price != 0)
                           .map((ingridients) => (
-                            <>
+                            <Fragment key={ingridients.id}>
                               {ingridients.title}
                               {ingridients.price}€ ,
-                            </>
+                            </Fragment>
                           ))}
                       </p>
                     </div>

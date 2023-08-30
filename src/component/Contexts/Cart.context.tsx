@@ -112,7 +112,7 @@ export const CartProvider = (props: CartProviderProps) => {
         (ingridient) => (price2 = price2 + ingridient.price * element.quantity)
       )
     );
-    console.log("price ingridients ===", price2);
+
     price = price + price2;
     return price; // calculate the total price of the items in the cart
   };

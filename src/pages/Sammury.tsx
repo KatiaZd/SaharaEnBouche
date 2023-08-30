@@ -3,22 +3,26 @@ import { useNavigate } from "react-router-dom";
 import Styles from "./PanierPage.module.css";
 import Button from "../component/Button/Button";
 import style from "./Sammury.module.css";
+import { Fragment } from "react";
 
 const Sammury = () => {
   const { products, getCartTotalProduct } = useCartContext();
-  console.log("productCart===", products);
   let navigate = useNavigate();
 
   const { cleanCart } = useCartContext();
 
+  const numeroDeCommande = JSON.parse(
+    localStorage.getItem("number of commande")!
+  );
+
   return (
     <main>
       <h2 className={`${Styles.pagePanier_title} ${style.Sammury_title}`}>
-        Votre commande 12 est en préparation
+        Votre commande {numeroDeCommande} est en préparation
       </h2>
       <div className={Styles.container_Products}>
         {products.map((productCart) => (
-          <div className={Styles.product_cart}>
+          <div key={Number(productCart.id)} className={Styles.product_cart}>
             <div className={Styles.remove_productCart_position}>
               <img src={productCart.product.picture} alt="" />
             </div>
@@ -41,7 +45,9 @@ const Sammury = () => {
                         {productCart.product.includedAndExtraIngredients
                           .filter((ingridient) => ingridient.price === 0)
                           .map((ingridients) => (
-                            <>{ingridients.title},</>
+                            <Fragment key={ingridients.id}>
+                              {ingridients.title},
+                            </Fragment>
                           ))}
                       </p>
                     </div>
@@ -51,10 +57,10 @@ const Sammury = () => {
                         {productCart.product.includedAndExtraIngredients
                           .filter((ingridient) => ingridient.price != 0)
                           .map((ingridients) => (
-                            <>
+                            <Fragment key={ingridients.id}>
                               {ingridients.title}
                               {ingridients.price}€ ,
-                            </>
+                            </Fragment>
                           ))}
                       </p>
                     </div>
