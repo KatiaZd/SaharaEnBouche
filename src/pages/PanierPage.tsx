@@ -19,8 +19,8 @@ const PanierPage = () => {
       </Link>
       <h2 className={Styles.pagePanier_title}>Votre panier</h2>
       <div className={Styles.container_Products}>
-        {products.map((productCart) => (
-          <div key={Number(productCart.id)} className={Styles.product_cart}>
+        {products.map((productCart, index) => (
+          <div key={index} className={Styles.product_cart}>
             <div className={Styles.remove_productCart_position}>
               <img
                 onClick={() =>
@@ -53,8 +53,8 @@ const PanierPage = () => {
                       <p>
                         {productCart.product.includedAndExtraIngredients
                           .filter((ingridient) => ingridient.price === 0)
-                          .map((ingridients) => (
-                            <Fragment key={ingridients.id}>
+                          .map((ingridients, index) => (
+                            <Fragment key={index}>
                               {ingridients.title},
                             </Fragment>
                           ))}
@@ -65,8 +65,8 @@ const PanierPage = () => {
                       <p>
                         {productCart.product.includedAndExtraIngredients
                           .filter((ingridient) => ingridient.price != 0)
-                          .map((ingridients) => (
-                            <Fragment key={ingridients.id}>
+                          .map((ingridients, index) => (
+                            <Fragment key={index}>
                               {ingridients.title}
                               {ingridients.price}€ ,
                             </Fragment>
