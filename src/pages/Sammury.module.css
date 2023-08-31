@@ -1,0 +1,11 @@
+.estimate{
+  text-align: center;
+}
+@media (max-width: 500px) {
+  .Sammury_title {
+    position: relative;
+    top: 2rem;
+    z-index: 1;
+    margin-bottom: 6rem;
+  }
+}

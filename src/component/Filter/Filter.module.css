@@ -1,0 +1,49 @@
+.img_filter {
+  width: 33.453px;
+  height: 30.341px;
+  place-self: flex-end;
+  margin-top: 75px;
+}
+.bnt_filter {
+  width: 12px;
+  border: 1px solid black;
+  height: 12px;
+  border-radius: 50%;
+}
+.filter_container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.filter_name {
+  display: flex;
+  justify-content: space-between;
+  width: 65vw;
+  align-items: center;
+  border-bottom: 1px solid #d9d9d9;
+  background: #fff5e5;
+  padding: 0 2rem;
+  /* border-radius: 4px; */
+}
+.display_none {
+  display: none;
+}
+.display_block {
+  display: block;
+}
+.croix {
+  width: 25px;
+}
+.bg_black {
+  background-color: black !important;
+  width: 12px;
+  border: 1px solid black;
+  height: 12px;
+  border-radius: 50%;
+}
+
+@media (max-width: 500px) {
+  .img_filter {
+    margin-top: 133px;
+  }
+}

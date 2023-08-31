@@ -1,0 +1,21 @@
+.bnt_ingridient {
+  width: 12px;
+  border: 1px solid black;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.ingridients_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.total_price_product {
+  margin-left: auto;
+  width: 4rem;
+  text-align: end;
+  margin-top: 2rem;
+}
+.bg_color {
+  background-color: black;
+}
