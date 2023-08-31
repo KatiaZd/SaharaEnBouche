@@ -1,3 +1,6 @@
+.estimate{
+  text-align: center;
+}
 @media (max-width: 500px) {
   .Sammury_title {
     position: relative;

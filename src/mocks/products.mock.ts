@@ -27,6 +27,7 @@ export interface IProduct {
   includedAndExtraIngredients: IIncludedAndExtraIngredient[];
   filter: IFilter;
   category: ProductCategoryType;
+  estimate:string;
 }
 
 export const PRODUCTS: IProduct[] = [
@@ -61,6 +62,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "vegetarien",
     category: "entrées",
+    estimate:"5 min"
   },
   {
     id: 2,
@@ -93,6 +95,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "vegetarien",
     category: "entrées",
+    estimate:"5min",
   },
   {
     id: 3,
@@ -125,6 +128,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "vegetarien",
     category: "entrées",
+    estimate:"20min",
   },
   {
     id: 4,
@@ -157,6 +161,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "boeuf",
     category: "entrées",
+    estimate:"20min",
   },
   {
     id: 5,
@@ -189,6 +194,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "vegetarien",
     category: "entrées",
+    estimate:"20min",
   },
   {
     id: 6,
@@ -221,6 +227,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "boeuf",
     category: "entrées",
+    estimate:"20min",
   },
   {
     id: 7,
@@ -253,6 +260,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "boeuf",
     category: "plats",
+    estimate:"20min",
   },
   {
     id: 8,
@@ -285,6 +293,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "vegetarien",
     category: "plats",
+    estimate:"20min",
   },
   {
     id: 9,
@@ -317,6 +326,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "boeuf",
     category: "plats",
+    estimate:"20min",
   },
   {
     id: 10,
@@ -349,6 +359,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "vegetarien",
     category: "plats",
+    estimate:"20min",
   },
   {
     id: 11,
@@ -381,6 +392,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "boeuf",
     category: "plats",
+    estimate:"20min",
   },
   {
     id: 12,
@@ -413,6 +425,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "boeuf",
     category: "plats",
+    estimate:"20min",
   },
   {
     id: 13,
@@ -445,6 +458,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "agneau",
     category: "grillades",
+    estimate:"20min",
   },
   {
     id: 14,
@@ -477,6 +491,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "boeuf",
     category: "grillades",
+    estimate:"15min",
   },
   {
     id: 15,
@@ -509,6 +524,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "boeuf",
     category: "grillades",
+    estimate:"15min",
   },
   {
     id: 16,
@@ -541,6 +557,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "boeuf",
     category: "grillades",
+    estimate:"15min",
   },
   {
     id: 17,
@@ -573,6 +590,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "agneau",
     category: "grillades",
+    estimate:"15min",
   },
   {
     id: 18,
@@ -605,6 +623,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "boeuf",
     category: "grillades",
+    estimate:"15min",
   },
   {
     id: 19,
@@ -637,6 +656,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "dessert",
     category: "desserts",
+    estimate:"15min",
   },
   {
     id: 20,
@@ -669,6 +689,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "dessert",
     category: "desserts",
+    estimate:"8min",
   },
   {
     id: 21,
@@ -701,6 +722,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "dessert",
     category: "desserts",
+    estimate:"8min",
   },
   {
     id: 22,
@@ -733,6 +755,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "dessert",
     category: "desserts",
+    estimate:"8min",
   },
   {
     id: 23,
@@ -765,6 +788,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "dessert",
     category: "desserts",
+    estimate:"8min",
   },
   {
     id: 24,
@@ -797,6 +821,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "dessert",
     category: "desserts",
+    estimate:"8min",
   },
   {
     id: 25,
@@ -829,6 +854,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "boisson",
     category: "boissons",
+    estimate:"5min",
   },
   {
     id: 26,
@@ -861,6 +887,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "boisson",
     category: "boissons",
+    estimate:"5min",
   },
   {
     id: 27,
@@ -893,6 +920,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "boisson",
     category: "boissons",
+    estimate:"5min",
   },
   {
     id: 28,
@@ -925,6 +953,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "boisson",
     category: "boissons",
+    estimate:"5min",
   },
   {
     id: 29,
@@ -957,6 +986,7 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "boisson",
     category: "boissons",
+    estimate:"5min",
   },
   {
     id: 30,
@@ -989,5 +1019,6 @@ export const PRODUCTS: IProduct[] = [
     ],
     filter: "boisson",
     category: "boissons",
+    estimate:"5min",
   },
 ];
