@@ -35,7 +35,7 @@ const PanierPage = () => {
               />
               <img src={productCart.product.picture} alt="" />
             </div>
-            <div>
+            <div className={Styles.ingridients_mobile}>
               <div>
                 <div className={Styles.remove_productCart}>
                   <h2 className={Styles.h2_panier}>
