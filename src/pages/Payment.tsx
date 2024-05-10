@@ -2,9 +2,11 @@ import FormPayment from "../component/FormPayment/FormPayment";
 import BackButton from "../component/BackButton/BackButton";
 import style from "./Payment.module.css";
 import { useCartContext } from "../component/Contexts/Cart.context";
+import { useNavigate } from "react-router";
 
 const Payment = () => {
   const { getCartTotalProduct } = useCartContext();
+  let navigate = useNavigate();
   return (
     <main>
       <BackButton />
@@ -26,7 +28,7 @@ const Payment = () => {
             src="../../../public/assets/icons/especes.png"
             alt="Paiement en espèces"
           />
-          <p>Paiement par CB</p>
+          <p>Paiement en espèces</p>
         </div>
       </div>
       <div className={style.formPaiement}>
